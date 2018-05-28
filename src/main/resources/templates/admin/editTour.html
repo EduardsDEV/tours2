@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Tour</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" th:href="@{/}">Tour.me</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/tour/add}">Add a Tour <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/tours/all}">All Tours <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/tours/requests}">Tour Requests <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="#" th:href="@{/login?logout}" class="btn btn-warning">LOGOUT</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<body>
+<div class="container">
+    <hr class="my-4"/>
+    <h4>Fill the info for the new tour!</h4>
+    <p class="lead">
+    <form action="#" th:action="@{/tour/add}" th:object="${tour}" method="post">
+
+        <input type="hidden" id="id" name="id" placeholder="id" th:value="${tour.id}"/> <br/>
+        <legend>Tour name</legend>
+        <input class="form-control" type="text" id="name" name="name" th:value="${tour.name}"
+               required="true"/> <br/>
+
+        <legend>Tour Description</legend>
+        <input class="form-control" type="text" id="description" name="description" th:value="${tour.description}" required="true"/> <br/>
+
+        <legend>Tour PRICE</legend>
+        <input class="form-control" type="number" id="price" name="price" th:value="${tour.price}"
+               required="true"/> <br/>
+
+        <legend>Tour duration</legend>
+        <input class="form-control" type="text" id="duration" name="duration" th:value="${tour.duration}"
+               required="true"/> <br/>
+
+    <legend>Qty People</legend>
+    <input class="form-control" type="text" id="qtyPeople" name="qtyPeople" th:value="${tour.qtyPeople}"
+           required="true"/> <br/>
+
+
+        <legend>Tour city</legend>
+        <select name="city">
+            <option th:each="city : ${cityList}" th:text="${city.cityName}">xxx</option>
+
+        </select> <br/><br/>
+
+
+        <button type="submit" class="btn btn-dark">Save tour</button>
+        <button type="reset" class="btn btn-dark">Reset</button>
+        <input type="button" class="btn btn-dark" value="Go Back" onclick="window.location.href='/course/show'"/>
+
+
+    </form>
+
+    </p>
+</div>
+
+<!--<script>-->
+<!--$(document).ready(function () {-->
+<!--$('.uploadForm').on('click', '.submit', function (e) {-->
+<!--e.preventDefault() //this prevents the form from submitting normally, but still allows the click to 'bubble up'.-->
+
+<!--//lets get our values from the form....-->
+<!--var file = $('#name').val();-->
+
+<!--//now lets make our ajax call-->
+<!--$.ajax({-->
+<!--type: "POST",-->
+<!--url: "/admin/upload",-->
+<!--headers: {},-->
+<!--data: {file: file}-->
+<!--}).done(function () {-->
+
+<!--//replace submit button with some text...-->
+<!--$('.submit').after('<span class="messageSent">Message Sent!</span>');-->
+
+<!--});-->
+<!--});-->
+<!--});</script>-->
+<!--<script>-->
+<!--$(document).ready(function () {-->
+<!--$('.uploadForm').on('click', '.submit', function (e) {-->
+<!--e.preventDefault() //this prevents the form from submitting normally, but still allows the click to 'bubble up'.-->
+<!--var file = $('#name').val();-->
+<!--$.ajax({-->
+<!--type: "POST",-->
+<!--url: "/admin/upload",-->
+<!--headers: {},-->
+<!--data: file,-->
+<!--cache: false,-->
+<!--contentType: false,-->
+<!--processData: false,-->
+<!--}).done(function () {-->
+
+<!--//replace submit button with some text...-->
+<!--$('.submit').after('<span class="messageSent">Message Sent!</span>');-->
+
+<!--});-->
+
+<!--});-->
+<!--});-->
+<!--</script>-->
+</body>
+
+</html>

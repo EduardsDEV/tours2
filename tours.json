@@ -1,0 +1,36 @@
+[
+  {
+    "tourCity": "Prague",
+    "title": "Prague - the soul of the Czech Republic (a large sightseeing tour)",
+    "duration": "4-6 hours",
+    "price": "100",
+    "country": "Czech Repubplic",
+    "keywords": "prague, czech"
+  },
+  {
+    "tourCity": "Brno",
+    "title": "Brno - nice Czech Republic ",
+    "duration": "2-3 hours",
+    "price": "200",
+    "country": "Czech Repubplic",
+    "keywords": "brno, czech"
+  },
+  {
+    "tourCity": "Dresden",
+    "title": "Dresden (a large sightseeing tour)",
+    "duration": "10 hours",
+    "price": "500",
+    "country": "Germany",
+    "keywords": "dresden, Germany"
+  },
+  {
+    "tourCity": "Berlin",
+    "title": "Berlin - heart of Germany",
+    "duration": "4-6 hours",
+    "price": "1000",
+    "country": "Germany",
+    "keywords": "Berlin, Germany"
+  }
+  
+  
+]

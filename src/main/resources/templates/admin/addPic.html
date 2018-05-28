@@ -1,0 +1,108 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8"/>-->
+    <!--<title>Add Picture for a tour</title>-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"-->
+          <!--integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"-->
+            <!--integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"-->
+            <!--crossorigin="anonymous"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--</head>-->
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+    <!--<a class="navbar-brand" href="#" th:href="@{/}">Tour.me</a>-->
+    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"-->
+            <!--aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+
+    <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+        <!--<ul class="navbar-nav mr-auto">-->
+            <!--<li class="nav-item active">-->
+                <!--<a class="nav-link" href="#" th:href="@{/admin/tour/add}">Add a Tour <span-->
+                        <!--class="sr-only">(current)</span></a>-->
+            <!--</li>-->
+            <!--<li class="nav-item active">-->
+                <!--<a class="nav-link" href="#" th:href="@{/admin/tours/all}">All Tours <span-->
+                        <!--class="sr-only">(current)</span></a>-->
+            <!--</li>-->
+            <!--<li class="nav-item active">-->
+                <!--<a class="nav-link" href="#" th:href="@{/}">Tour Requests <span class="sr-only">(current)</span></a>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="collapse navbar-collapse" id="navbarSupportedContent1">-->
+        <!--<ul class="navbar-nav mr-auto">-->
+            <!--<li class="nav-item">-->
+                <!--<a href="#" th:href="@{/login?logout}" class="btn btn-warning">LOGOUT</a>-->
+            <!--</li>-->
+        <!--</ul>-->
+
+    <!--</div>-->
+<!--</nav>-->
+<!--<body>-->
+<!--<div class="container">-->
+    <!--<hr class="my-4"/>-->
+    <!--<h4>Fill the info for the new tour!</h4>-->
+    <!--<p class="lead">-->
+
+    <!--<h1>Spring Boot file upload example</h1>-->
+
+    <!--<form method="POST" class="uploadForm" action="/admin/uploadFile" enctype="multipart/form-data">-->
+        <!--<input id="file" type="file" name="file"/><br/><br/>-->
+        <!--<input class="submit" type="submit" value="Submit"/>-->
+        <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+    <!--</form>-->
+
+    <!--</p>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;$(document).ready(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;$('.uploadForm').on('click', '.submit', function (e) {&ndash;&gt;-->
+<!--&lt;!&ndash;e.preventDefault() //this prevents the form from submitting normally, but still allows the click to 'bubble up'.&ndash;&gt;-->
+
+<!--&lt;!&ndash;//lets get our values from the form....&ndash;&gt;-->
+<!--&lt;!&ndash;var file = $('#name').val();&ndash;&gt;-->
+
+<!--&lt;!&ndash;//now lets make our ajax call&ndash;&gt;-->
+<!--&lt;!&ndash;$.ajax({&ndash;&gt;-->
+<!--&lt;!&ndash;type: "POST",&ndash;&gt;-->
+<!--&lt;!&ndash;url: "/admin/upload",&ndash;&gt;-->
+<!--&lt;!&ndash;headers: {},&ndash;&gt;-->
+<!--&lt;!&ndash;data: {file: file}&ndash;&gt;-->
+<!--&lt;!&ndash;}).done(function () {&ndash;&gt;-->
+
+<!--&lt;!&ndash;//replace submit button with some text...&ndash;&gt;-->
+<!--&lt;!&ndash;$('.submit').after('<span class="messageSent">Message Sent!</span>');&ndash;&gt;-->
+
+<!--&lt;!&ndash;});&ndash;&gt;-->
+<!--&lt;!&ndash;});&ndash;&gt;-->
+<!--&lt;!&ndash;});</script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;$(document).ready(function () {&ndash;&gt;-->
+<!--&lt;!&ndash;$('.uploadForm').on('click', '.submit', function (e) {&ndash;&gt;-->
+<!--&lt;!&ndash;e.preventDefault() //this prevents the form from submitting normally, but still allows the click to 'bubble up'.&ndash;&gt;-->
+<!--&lt;!&ndash;var file = $('#name').val();&ndash;&gt;-->
+<!--&lt;!&ndash;$.ajax({&ndash;&gt;-->
+<!--&lt;!&ndash;type: "POST",&ndash;&gt;-->
+<!--&lt;!&ndash;url: "/admin/upload",&ndash;&gt;-->
+<!--&lt;!&ndash;headers: {},&ndash;&gt;-->
+<!--&lt;!&ndash;data: file,&ndash;&gt;-->
+<!--&lt;!&ndash;cache: false,&ndash;&gt;-->
+<!--&lt;!&ndash;contentType: false,&ndash;&gt;-->
+<!--&lt;!&ndash;processData: false,&ndash;&gt;-->
+<!--&lt;!&ndash;}).done(function () {&ndash;&gt;-->
+
+<!--&lt;!&ndash;//replace submit button with some text...&ndash;&gt;-->
+<!--&lt;!&ndash;$('.submit').after('<span class="messageSent">Message Sent!</span>');&ndash;&gt;-->
+
+<!--&lt;!&ndash;});&ndash;&gt;-->
+
+<!--&lt;!&ndash;});&ndash;&gt;-->
+<!--&lt;!&ndash;});&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--</body>-->
+
+<!--</html>-->

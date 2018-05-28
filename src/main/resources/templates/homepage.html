@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tour Booking Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <style>
+        .tours-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-row-gap: 1rem;
+        }
+    </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" th:href="@{/}">Tour.me</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/tours/shownew}">All Tours<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{mailto:someone@somewhe.re}">Contact <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/login}">ADMIN LOGIN <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="#" th:href="@{/login?logout}" class="btn btn-warning">LOGOUT</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+<body>
+
+<div class="jumbotron">
+    <h4 class="display-3" align="center">Quality Tours in Europe by Tour.me</h4>
+    <p class="lead">
+    </p>
+    <hr class="my-4"/>
+
+    <p class="lead"></p>
+    <div class="tours-container">
+        <div class="card" style="width: 18rem;" th:each="tour : ${toursList}">
+            <!--<a th:href="@{/}" th:src="@{'/images/tours/' + ${tour.name} + '.jpg'}">-->
+            <!--<img class="card-img-top" src="..." th:src="@{'/images/tours/' + ${tour.name} + '.jpg'}"-->
+            <img class="card-img-top" src="..." th:src="@{'https://s3.eu-central-1.amazonaws.com/tourseduards/' + ${tour.name} + '.jpg'}"
+                 alt="Card image cap" th:alt="@{'/images/tours/' + ${tour.name} + '.jpg'}"/>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${tour.name}">Card title</h5>
+                <p class="card-text" th:text="${tour.price}+ '	€'">Some quick example text to build on the card title
+                    and
+                    make up the bulk of the card's
+                    content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" th:text="${tour.duration}">Cras justo odio</li>
+                <li class="list-group-item" th:text="${tour.city}">Tour city</li>
+            </ul>
+            <div class="card-body">
+                <a href="view.html" class="btn btn-success myclass" th:href="@{'/guest/apply?id=' + ${tour.id}}">Apply Now</a>
+                <a href="view.html" th:href="@{'/tour/tourInfo?id=' + ${tour.id}}" class="btn btn-success">MORE INFO</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /*<![CDATA[*/
+    init();
+    function init() {
+        var elements = document.getElementsByClassName("myclass");
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements.item(i);
+            element.addEventListener('click', function (event) {
+                var confirmed = confirm("Are you sure? Your Request will be sent to our team and we will contact you within 2 working days");
+                if (!confirmed) {
+                    event.preventDefault();
+                }
+            });
+        }
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Tour</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" th:href="@{/}">Tour.me</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/tour/add}">Add a Tour <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/tours/all}">All Tours <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" th:href="@{/admin/tours/requests}">Tour Requests <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="#" th:href="@{/login?logout}" class="btn btn-warning">LOGOUT</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<body>
+<div class="container">
+    <hr class="my-4"/>
+    <h4>Fill the info for the new tour!</h4>
+    <p class="lead">
+    <form action="#" th:action="@{/tour/add}" th:object="${tour}" method="post">
+        <legend>Tour name</legend>
+        <input class="form-control" type="text" id="name" name="name" placeholder="tour name" value="Tour Name"
+               required="true"/> <br/>
+
+        <legend>Tour Description</legend>
+        <input class="form-control" type="text" id="description" name="description" placeholder="e description"
+               value="Description" required="true"/> <br/>
+
+        <legend>Tour PRICE</legend>
+        <input class="form-control" type="number" id="price" name="price" placeholder="price" value="100"
+               required="true"/> <br/>
+
+        <legend>Tour duration</legend>
+        <input class="form-control" type="text" id="duration" name="duration" placeholder="duration" value="duration"
+               required="true"/> <br/>
+
+    <legend>Group of people</legend>
+    <input class="form-control" type="text" id="qtyPeople" name="qtyPeople" placeholder="qtyPeople" value="qtyPeople"
+           required="true"/> <br/>
+
+    <legend>Long Description</legend>
+    <input class="form-control" type="text" id="longDescription" name="longDescription" placeholder="longDescription" value="longDescription"
+           required="false"/> <br/>
+
+        <!--<legend>Tour city</legend>-->
+        <!--<input class="form-control" type="text" id="city" name="city" placeholder="city" value="city" required="true"/> <br/>-->
+        <legend>Tour city2</legend>
+        <select name="city">
+            <option th:each="city : ${cityList}" th:text="${city.cityName}">xxx</option>
+
+        </select> <br/><br/>
+
+
+        <button type="submit" class="btn btn-dark">Save tour</button>
+        <button type="reset" class="btn btn-dark">Reset</button>
+        <input type="button" class="btn btn-dark" value="Go Back" onclick="window.location.href='/course/show'"/>
+
+
+    </form>
+
+    </p>
+</div>
+<div class="container">
+    <hr class="my-4"/>
+    <h1>Welcome to Picture upload center!</h1>
+    <p class="lead">
+
+    <h4>Tour picture upload</h4>
+
+    <form method="POST" class="uploadForm" action="/admin/uploadTourPicture" enctype="multipart/form-data">
+        <input id="file" type="file" name="file"/><br/><br/>
+        <input class="submit" type="submit" value="Submit"/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+    <h4>Tour picture upload</h4>
+
+    <form method="POST" class="uploadForm" action="/admin/uploadCityPicture" enctype="multipart/form-data">
+        <input id="city" type="file" name="file"/><br/><br/>
+        <input class="submit" type="submit" value="Submit"/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+    <h4>Country picture upload</h4>
+
+    <form method="POST" class="uploadForm" action="/admin/uploadCountryPicture" enctype="multipart/form-data">
+        <input id="country" type="file" name="file"/><br/><br/>
+        <input class="submit" type="submit" value="Submit"/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+    </p>
+</div>
+</body>
+
+</html>
