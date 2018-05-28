@@ -15,27 +15,27 @@ public class MvcConfig {
 //    @Value("${ps=}")
 //    private String aaaa;
 
-    @Primary
-    @Bean(name = "dataSource")
-    public DriverManagerDataSource dataSource() {
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/tours");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("");
-        return driverManagerDataSource;
-    }
-
-//        @Primary
+//    @Primary
 //    @Bean(name = "dataSource")
 //    public DriverManagerDataSource dataSource() {
 //        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 //        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//        driverManagerDataSource.setUrl("jdbc:mysql://tours.ccstqrdndgqb.us-east-2.rds.amazonaws.com:3306/tours");
-//        driverManagerDataSource.setUsername("eduards");
-//        driverManagerDataSource.setPassword("eduards123");
+//        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/tours");
+//        driverManagerDataSource.setUsername("root");
+//        driverManagerDataSource.setPassword("");
 //        return driverManagerDataSource;
 //    }
+
+        @Primary
+    @Bean(name = "dataSource")
+    public DriverManagerDataSource dataSource() {
+        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
+        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        driverManagerDataSource.setUrl("jdbc:mysql://tours.ccstqrdndgqb.us-east-2.rds.amazonaws.com:3306/tours");
+        driverManagerDataSource.setUsername("eduards");
+        driverManagerDataSource.setPassword("eduards123");
+        return driverManagerDataSource;
+    }
 
 
 }
